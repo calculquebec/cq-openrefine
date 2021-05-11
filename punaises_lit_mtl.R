@@ -1,4 +1,3 @@
-setwd("")
 # donnees utilisees par radcan 
 # https://ici.radio-canada.ca/nouvelle/814609/punaises-lit-montreal-donnees-arrondissement-probleme-exterminateur-ville-logement-appartement-pauvrete
 
@@ -20,12 +19,12 @@ plot(x = summary_initial$date, y = summary_initial$x )
 donnees_clean <- read.csv("./formation_openrefine_punaises_bonifiees.csv", header=T)
 head(donnees_clean)
 
-library(ggplot2)
-library(plyr)
-library(scales)
-library(zoo)
-library(ggmap)
-library(plotly)
+
+packgs=c("ggplot2","plyr","scales", "zoo", "ggmap", "plotly")
+new.packages <- packgs[!(packgs %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+lapply(packgs, library, character.only=TRUE)
 
 str(donnees_clean)
 
