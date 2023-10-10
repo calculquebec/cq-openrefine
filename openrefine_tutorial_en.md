@@ -12,30 +12,25 @@ You can download Openrefine here
 5. because it contains powerful aggregation algorithms
 
 ## Some notes on OpenRefine
-1. OpenRefine was originally designed by Google under the name **Google Refine** and then became an open-source project under the name OpenRefine. If you are looking for help online, both names may return useful information.
+1. OpenRefine was originally designed by Google under the name **Google Refine** and then became an open-source project under the name OpenRefine.
 2. OpenRefine is a Java application and **a _sort_ of Java** has been developed especially for OpenRefine. This is a language called **GREL (General Refine Expression Language)**.
-3. There are **online groups** focused on using OpenRefine:
+3. OpenRefine has a new **online forum** focused on using OpenRefine:
 
-[https://groups.google.com/forum/?hl=en#!forum/openrefine marge(https://groups.google.com/forum/?hl=en#!forum/openrefine)
+https://forum.openrefine.org/
 
 > **THE DOCUMENTATION HAS IMPROVED A LOT but it's still worth watching the online forums**
 
-4. OpenRefine is relatively efficient up to a limit of **1 million cells, 50 megabytes (MB)s or 50 columns per record**. You can improve this by allocating more memory https://docs.openrefine.org/manual/installing.
+4. OpenRefine is relatively efficient up to a limit of **1 million cells, 50 megabytes (MB)s or 50 columns per record**. You can improve this by allocating more memory https://docs.openrefine.org/manual/installing. A rule of thumb if you're running out of memory is to allocate 50% of however much memory you have left. That way you still have some wiggle room for all of your other computing needs. Do **NOT** allocate all of your available RAM or you'll run the risk of crashing your computer.
 5. As the project is _open source_, there are several modified versions of OpenRefine which allow in particular to use files of millions of lines or to do the operations in parallel.
- 
-## Install OpenRefine
+5. Today, we're using the internet but once you have OpenRefined installed, you don't need to be connected to the internet to use it.
+
+## Installing OpenRefine
  
 We'll be using OpenRefine on a remote server, however the following instructions apply when you are using OpenRefine on your personal computer. 
 
-There is no software requirement to use OpenRefine. However, make sure that **Java** is installed and up to date.
+There is no software requirement to use OpenRefine. However, make sure that **Java** is installed and up to date. You'll be redirected to https://openrefine.org/docs/manual/installing#java when launching OpenRefine for the first time if you don't have the appropriate Java version.
 
-You should have downloaded OpenRefine and extracted the files to a location on your computer. In **Windows**, you can navigate to the location of the extracted files and double click "openrefine.exe". On **Mac and Linux**, use a terminal to navigate to where the files are located and run
-
-```./refine ```
-
-In **Linux and hypothetically in Mac with Homebrew**, you might be able to install OpenRefine and then run it in a terminal with the command
-
-``` openrefine ```
+You should have downloaded OpenRefine and extracted the files to a location on your computer.
 
 When OpenRefine is launched, you should see a terminal (regardless of your operating system).
 
@@ -43,6 +38,11 @@ When OpenRefine is launched, you should see a terminal (regardless of your opera
 
 A web page should open. If not, open a browser and go to the address http://127.0.0.1:3333/.
 
+### Extensions
+
+You might want to install some extensions https://openrefine.org/extensions. If you choose to do so, you have 2 options:
+1. You can install them in the program folder: They'll be erased with every new OpenRefine version. It is useful if you want to make sure that you have a version of the extension that matches the version of OpenRefine that you're using.
+2. You can install them in your workspace: They won't go away with the next upgrade. It is useful if you want to keep a specific version of your extension regardless of the version of OpenRefine that you are using.
 
 ## Use OpenRefine
 ### The dataset
@@ -57,20 +57,23 @@ These are bed bug declaration data from the Island of Montreal. Note the informa
 So these are perfect data for a class!
 On your personal computer, should have **extracted the csv file to your computer.**
 
-On the server, we will let OpenRefine create a project directly from the dataset on the host server by using https://data.montreal.ca/dataset/49ff9fe4-eb30-4c1a-a30a-fca82d4f5c2f/resource/6173de60-c2da-4d63-bc75-0607cb8dcb74/download/declarations-exterminations-punaises-de-lit.csv
-
+On the server, we will let OpenRefine create a project directly from the dataset on the host server by using https://donnees.montreal.ca/dataset/49ff9fe4-eb30-4c1a-a30a-fca82d4f5c2f/resource/6173de60-c2da-4d63-bc75-0607cb8dcb74/download/declarations-exterminations-punaises-de-lit.csv
 
 ### Creating a project
 OpenRefine can import several types of files: **tsv (tab separated), csv (comma separated), xls, xlsx, JSON, XML, RDF as XML, Google Spreadsheets**, etc.
 
-1. In the **"Create Project"** tab (we could choose a file from the web, but let's use the downloaded csv)
-2. Click **"Choose Files"** to find the csv file on your computer
+1. In the **Home screen**, find **"Create Project"** tab 
+2. Click **"Web Addresses (URLs)"** . We could choose to pick a local file but this time we'll fetch the dataset directly from the web. https://donnees.montreal.ca/dataset/49ff9fe4-eb30-4c1a-a30a-fca82d4f5c2f/resource/6173de60-c2da-4d63-bc75-0607cb8dcb74/download/declarations-exterminations-punaises-de-lit.csv
+
+> Tip: It is convenient to select "Parse cell text into numbers, dates, ..." but if can use more memory than you'd expect. If you're dealing with a large dataset, you might want to leave that unchecked and convert strings as needed.
+
 3. Click **"Next"**.
 4. You be able to **preview the file**.
 5. You can **change the encoding**, which may be interesting if you are working in windows (UTF-8).
 6. Play around with the file separation types at the bottom to see the results.
-7. If everything looks correct, give a name **to the copy of the file** and click **"Create Project"**.
-8. Take a look at the column names.
+7. If everything looks correct, give a name **to the copy of the file** and click **"Create Project"**. You can always change the name of your project in the project bar at the top of the screen.
+8. In the next page, you'll see the **Project bar** at the top, where you can edit the name of your project.
+9. Take a look at the column names in the grid.
 9. In OpenRefine, changes are mostly made to **columns**. We can also see that there are **lines** and each piece of information is contained in a **cell**.
 
 <img src = "webpage.png" width = "400">
@@ -78,61 +81,30 @@ OpenRefine can import several types of files: **tsv (tab separated), csv (comma 
 ### Text filters
 **Each column has a menu**. You can start by **"Text filter"** on the NOM_ARROND column. We can look for lots of words.
 
-### Data type
-#### Change type
-By default, OpenRefine reads all cells as strings. To perform operations on columns that are not strings, you must transform the cells to the appropriate type. To do this, you need to click the arrow to the left of the column name, then:
-```Edit cells / Common transfroms```
-
-and select the desired transform. The cells will appear in green when they are no longer strings.
                                       
 ### Facetting
 This is the most important step in OpenRefine. It will allow you to explore and familiarize yourself with the data. This is particularly useful when working with large datasets. Facetting allows you to get a **big picture of complex datasets** and to begin exploring them in more detail.
 
 Facets allow you to ***aggregate*** certain data and make modifications to these groups of data.
 
-
 #### Text Facets
 
 Let us take the **first column with the name of the districts**. If we click the arrow and **Facets** then **Text Facet**, a box opens with the different writings of the names of the roundings.
 
-> As the entries were made by multiple people and with accents, it's a bit of a mess.
+> This dataset has improved massively over the yeard (sadly for me) but there are still a lot of accents and special characters that make it messy.
 
 If we ***keep the word*** in the search box, we can create a facet just for that word. If we remove the text search, we have the entire arrondissements column. The total count for each borough next to their name gives us a quick overview.
 
->For example, if we type "Parc" in the filter box for NOM_QR, we fond that neighboroods containing the word _Parc_ are found in Côte-des-neiges-Notre-Dame-de-grâce, Le Plateau-Mont-Royal, and Villeray-Saint-Michel-Parc-Extension
+>For example, if we type "Parc" in the filter box for NOM_QR, we find that neighboroods containing the word _Parc_ are found in Côte-des-neiges-Notre-Dame-de-grâce, Le Plateau-Mont-Royal, and Villeray-Saint-Michel-Parc-Extension
 
 > If we changed a name directly in a cell, we would see the change in the facet.
 
 
 ### Numeric facet
 
-In this dataset, we can use the number of exterminations (after transforming that column to number) in a numeric facet and see that the number of exterminations per declaration goes from 1 to 5. We can confirm this by applying a text facet on the same column.
-
-### Scatterplot facet
-The locations are recorded using their latitude and longitude. After transforming them to numeric, we can use a scatterplot facet to have an idea of the areas most affected by bed bugs. It would also be a useful tool to detect outliers.
-
-
-### Timeline facet
-
-It is possible to organize the data by date rather than numerically. Just like the numerical facets, it is necessary to have previously changed the format of the column for date in order to be able to do the facetting.
-
-***
-Note: The conversion to date format may work randomly for you. It appears to be a problem with Java and your computer's time zone. Always check that the conversion produced the desired result!
-***
-#### Other Facets
-
-There are other customized facets, for example:
-
-1. "Words" explodes a string and counts the occurrences of words
-    
-2. "Duplicates"
-    
-3. "Text length" counts the number of characters in a cell. Can be useful to find comments entered in a Yes / No cell
-    
-4. "Blanks"
-    
+In this dataset, we can use the number of exterminations (after transforming that column to number) in a numeric facet and see that the number of exterminations per declaration goes from 1 to 5. We can confirm this by appl
                                       
-#### Editing
+### Editing
 
 You can **click directly inside a cell to manually change its content**. Let's change just one word and see what happens to our facet. You can also click "edit" on a facet and change all the cells that are part of the facet.
 
@@ -160,7 +132,7 @@ You can select ***"retransform up to N times"*** to create loops that will attem
 ---
 
 #### Reuse expressions
-We can reuse commands already executed in the _history_ tab of the GREL interface. TYou can also star commands that you expect to use frequently.
+We can reuse commands already executed in the _history_ tab of the GREL interface. You can also star commands that you expect to use frequently.
 
 ---
 ##### Exercice
@@ -168,8 +140,16 @@ We can reuse commands already executed in the _history_ tab of the GREL interfac
 Reuse the previous expression on NOM_QR.
 
 ---
-                                      
+
 ### Common transformations
+
+### Data type
+#### Change type
+By default, OpenRefine reads all cells as strings. To perform operations on columns that are not strings, you must transform the cells to the appropriate type. To do this, you need to click the arrow to the left of the column name, then:
+```Edit cells / Common transfroms```
+
+and select the desired transform. The cells will appear in green when they are no longer strings.
+
 
 #### Trim leading and trailing white spaces
 
@@ -185,7 +165,6 @@ When working with text, there are often cells with white space at the beginning 
 Click on the **Undo / Redo** and **click on the step** where we created an error. We can go back in time to the point where we made a change we want to cancel. We can also move forward in time if we finally decide to go ahead with the modification. It is impossible to delete a single step in the middle of the entire process because each consecutive step depends on the previous ones.
 
 
-                                      
 ### Groupings (_clustering_)
 
 It is possible in Openrefine to identify typos and words written the way they sound. Algorithms are readily available in the menu **arrow / cluster and edit**
@@ -246,11 +225,9 @@ When making drastic modifications to a column, it is possible to keep the origin
 
 ---
 ##### Exercise
-On column _NOM_QR_ **edit column / add column based on this column**
-Name the new column _NOM_QR2_
-On the _NOM_QR2_ column **split column into several colums**, separator -, split into 2 columns
+On column _NOM_QR_, clicj **split column into several colums**, separator -, split into 2 columns, and uncheck "Remove this column".
 
-If we want to put the columns back together we can use the **join columns** option
+If we want to put the columns back together we can use the **join columns** option and check "Delete joined columns". 
 
 Or do it manually **facet by blank on column 2** and on **column 3**. We will see that there are plenty of blanks in column 3. We will **select "False"** in the facet by blank. We're only going to have those who don't have a blank. We can now do _add column based on this column_ on the column _NOM_QR2 1_ and type
 **value + "-" + cells ["NOM_QR2 2"]. value**
@@ -260,54 +237,15 @@ If after the fact you wanted to rename the column ...
 
 ---
 
-##### Exercise
-Replace a number "1" by the letter "l" in the DATE_FINTRAIT column.
-Convert the column to a date. Identify the cell left in text in the column. Modify the cell and select the format _date_
 
-A more stable solution is to use value.toDate("format") to convert manually if the default method does not give the expected results. For example, value.toDate("y") will extract the year only.
+### Change the order of the columns, remove the columns
 
-You can divide the columns to extract the start of the declaration date and remove the time.
-
-```edit column / split into several columns```
-> normally the ideal is to have a divider. Here we can take the "T" and 2 columns maximum.
-
-```facet and click only on date```
-
-```another facet on the column with the names```
-
-```clusters to fix errors```
-
-If we want to put the columns back together
-
-```facet by blank on column 2 and on column 3```
-> We will see that there are plenty of blanks in column 3.
-
-```select "False" in the facet by blank. ```
-> We're only going to have those who don't have a blank.
-
-```value +" "+ cells [" col2 3] .value in column 1```
-> Split [0] element 1, [1] element 2, [-1] last element
-
-```Change column names: arrow / edit column / rename column```
-
+Sometimes a facet contains too many unique value to identify missing data at a glance. _Sort_ can help us with that.
 ---
+##### Exercise
+On "COORD_X", _Text Facet_. Do you think you'd be able to spot a missing coordinate or an error?
 
-
-### Transpose
-
-You can transpose rows into columns and columns into rows. The main limitation is that you cannot aggregate the data like PivotTables can (MS Excel).
-
-Transpose cells across columns to rows: when you have multiple columns that contain values that you want to group into a single column. Ex: regroup LONGITUDE and LATITUDE in a column COORDINATED and VALUE. Transforms from "Wide" to "Long"
-
-Transpose cells into separate columns: when you have a column that has a repeated pattern eg: ABCABCABC. You select the number of cells to expand into columns.
-
-Convert Key / Value Columns to List: When you have a column that contains category names and a column that contains values. Transforms from "Long" to "Wide".
-
-
-### Investigate/Remove empty cells
-When cleaning messy datasets, there may be rows that contain data that we cannot use. We need to get rid of some rows and we can do it all at once using stars and flags in the **"All"** column.
-
-Let's inspect the NBR_EXTERMINATIONS column. 
+On "NBR_EXTERMINATION" converted to Number (or not, this would not make a difference), _Sort..._ and move _Blanks_ to the top in the right-hand box. 
 
 ### Remove empty cells
 A common problem with messy datasets is the presence of empty cells. Are they data entry errors? Missing data? An absence of result? You decide. As for OpenRefine, it generally does not do well with empty cells and NAs. Ideally, you should do this processing before handling the data in OpenRefine. However, you have a few options if you don't.
@@ -347,65 +285,79 @@ We can decide to only work on the data of certain boroughs.
 > We now have a data subset that we can export when we are done. Always remember that what you see is what you get. All excluded data will *not* be exported!
 
 
-### Change the order of the columns, remove the columns
+## Other facets
 
-```Arrow next to All, edit columns / Re-order / Remove columns```
-> You can rearrange or remove columns that are now unnecessary.
+### Scatterplot facet
+The locations are recorded using their latitude and longitude. After transforming them to numeric, we can use a scatterplot facet to have an idea of the areas most affected by bed bugs. It would also be a useful tool to detect outliers.
 
+
+### Timeline facet
+
+It is possible to organize the data by date rather than numerically. Just like the numerical facets, it is necessary to have previously changed the format of the column for date in order to be able to do the facetting.
+
+***
+Note: The conversion to date format may work randomly for you. It appears to be a problem with Java and your computer's time zone. Always check that the conversion produced the desired result!
+***
+
+##### Exercise
+Replace a number "1" by the letter "l" in the DATE_FINTRAIT column.
+Convert the column to a date. Identify the cell left in text in the column. Modify the cell and select the format _date_
+
+A more stable solution is to use value.toDate("format") to convert manually if the default method does not give the expected results. For example, value.toDate("y") will extract the year only.
+
+You can divide the columns to extract the start of the declaration date and remove the time.
+
+```edit column / split into several columns```
+> normally the ideal is to have a divider. Here we can take the "T" and 2 columns maximum.
+
+```facet and click only on date```
+
+```another facet on the column with the names```
+
+```clusters to fix errors```
+
+If we want to put the columns back together
+
+```facet by blank on column 2 and on column 3```
+> We will see that there are plenty of blanks in column 3.
+
+```select "False" in the facet by blank. ```
+> We're only going to have those who don't have a blank.
+
+```value +" "+ cells [" col2 3] .value in column 1```
+> Split [0] element 1, [1] element 2, [-1] last element
+
+```Change column names: arrow / edit column / rename column```
+
+---
+#### More Facets
+
+There are other customized facets, for example:
+
+1. "Words" explodes a string and counts the occurrences of words
+    
+2. "Duplicates"
+    
+3. "Text length" counts the number of characters in a cell. Can be useful to find comments entered in a Yes / No cell
+    
+4. "Blanks"
+    
+    
+### Transpose
+
+This should come naturally to anyone used to Excel. There are 3 ways you can transpose data in OpenRefine:
+
+1. _Transpose cells across columns into rows_  Useful when you receive "wide" datasets and you want to convert them to a "long" format. Select the columns you want to combine into one and pick either one column containing the values, or one column containing a key and one containing the values. Check "Fill down in other columns" to avoid getting empty cells.
+
+2. _Transpose cells in rows into columns_  Useful when you have a column that has a repeated pattern eg: ABCABCABC. You select the number of cells to expand into columns.
+
+3. _Columnize by key/value column_ To convert from "Long" to "Wide". You can even add columns containing comments!
 
 ### Data enhancement
 
-#### fetch URLs
-
-We can enhance the dataset by adding columns containing information automatically found online. For example, we might want to use the name of the borough to find a geolocation or a geolocation to find the type of building or the name of the street. One of the best known options for accessing geolocation information is the Google maps API
-
-[https://cloud.google.com/maps-platform/](https://cloud.google.com/maps-platform/)
-
-However, the API is now free on a limited basis (with a number of credits offered upon registration), but it can get expensive to query their API. A free option is OpenStreetMap
-
-[https://wiki.openstreetmap.org/wiki/API](https://wiki.openstreetmap.org/wiki/API)
-
-For the exercise, you may want to use the geolocation data from the inspections to determine the elevation of the location where the inspection took place. To do this, we will use an API that is only dedicated to elevation according to geolocation:
-
-[https://elevation-api.io/](https://elevation-api.io/)
-
-this api allows us to make an unlimited number of requests at 1km precision and then there is a billing for higher precision.
-
-Which we'll query using the latitude and longitude data we already have.
-> it might be a good idea to do a numerical facet on the coordinates first to ensure that there were no typos and "points in the ocean".
- 
- ```in column "latitude", add column based on column```
-
-```name "query_api"```
-
-```replace "value" with "https://elevation-api.io/api/elevation?points= (" + value + "," + cells.LONGITUDE.value + ")"```
-
-> this gives us a URL that will allow us to fetch the information that the API allows us to obtain on the coordinates that we have selected, that is to say the elevation in this case.
-
-When it's done, we have a column named query_api which will be the base to query the API. To do this,
-
-```in column "query_api": edit column / add column by fetching URL```
-
-```name query_result```
-
-```throttle: 500 milliseconds```
-
-> to give the server a break. Without this control from you, Openrefine will frantically query the API to get elevation data. It is therefore important to limit the number of requests per unit of time.
-
-We then let the magic happen and a few seconds / minutes / hours later we should have a new column containing (almost) indecipherable text:
-
-```{" elevations ": [{" lat ": 45.5563940269788," lon ": - 73.6459326267949," elevation ": 34.0}]," resolution ":" 1000m "}```
-
-Since we only want to keep the value for "elevation", in this case 34.0, we need to tell OpenRefine what to do with the _query_result_ column.
-
-```On column" query_result ": edit column / add column based on this column```
-
-```value.parseJson (). elevations [0] ['elevation'] ```
-which should return 34.0.
- 
 #### Reconcile
 
-Reconciliation is useful when we know of specific databases can be queried to enhance our dataset. You can choose a column that would contain unique identifiers that can be cross-referenced with the databases and choose:
+Reconciliation is useful when we know of specific databases can be queried to enhance our dataset. Those databases have APIs specifically built to accept reconciliation with OpenRefine. You can choose a column that would contain unique identifiers that can be cross-referenced with the databases and choose:
 ```reconcile / start reconciling```
 
 ```choose Wikidata reconciliation for openrefine```
@@ -422,8 +374,63 @@ The process is semi-automated because in some cases OpenRefine will not be able 
 and do some tests. In our case, we only have "Area" and "country" to look for. But you could choose a different database to get different results. We must also consider that we do not have a particular set of data suitable for reconciliation.
 
 <img src = "reconciliation_results.PNG" width = "400">
+
+There are many ways to reconcile data depending on your specific needs, but to better understand the use of an API, we'll do the process manually with a database that isn't designed for reconciliation.
+
+#### fetch URLs
+
+We can enhance the dataset by adding columns containing information automatically found online. For example, we might want to use the name of the borough to find a geolocation or a geolocation to find the type of building or the name of the street. One of the best known options for accessing geolocation information is the Google maps API
+
+[https://cloud.google.com/maps-platform/](https://cloud.google.com/maps-platform/)
+
+However, the API is now free on a limited basis (with a number of credits offered upon registration), but it can get expensive to query their API. A free option is OpenStreetMap, which is OpenRefine's wishlist for reconciliation. If you ever implement a reconciliation API for OpenStreetMap, let us know!
+
+[https://wiki.openstreetmap.org/wiki/API](https://wiki.openstreetmap.org/wiki/API)
+
+Since this is an introduction, we will use a much simpler API. For the exercise, you may want to use the geolocation data from the inspections to determine the elevation of the location where the inspection took place. To do this, we will use Natural Resources Canada's elevation API that is only dedicated to elevation according to geolocation:
+
+[http://geogratis.gc.ca/](http://geogratis.gc.ca)
+
+Which we'll query using the latitude and longitude data we already have.
+> it might be a good idea to do a numerical facet on the coordinates first to ensure that there were no typos and "points in the ocean".
  
+ ```in column "latitude", add column based on column```
+
+```name "query_api"```
+
+```replace "value" with "http://geogratis.gc.ca/services/elevation/cdem/altitude?lat=" + value + "&lon=" + cells.LONGITUDE.value"```
+
+> this gives us a URL that will allow us to fetch the information that the API allows us to obtain on the coordinates that we have selected, that is to say the elevation in this case.
+
+When it's done, we have a column named query_api which will be the base to query the API. To do this,
+
+```in column "query_api": edit column / add column by fetching URL```
+
+```name query_result```
+
+```throttle: 500 milliseconds```
+
+> to give the server a break. Without this control from you, Openrefine will frantically query the API to get elevation data. It is therefore important to limit the number of requests per unit of time.
+
+We then let the magic happen and a few seconds / minutes / hours later we should have a new column containing (almost) indecipherable text:
+
+```{
+    "altitude": 23.0,
+    "vertex": true,
+    "geometry": {"type":"Point","coordinates":[-73.74,45.4406]}
+}```
+
+Since we only want to keep the value for "altitude", in this case 23.0, we need to tell OpenRefine what to do with the _query_result_ column.
+
+```On column" query_result ": edit column / add column based on this column```
+
+```value.parseJson().altitude ```
+which should return 23.
+
+
 ### Exporting
+You can export your transformed dataset in a number of existing formats, such as CSV. Note that only the data selected in the facets will be exported. 
+
 The **Export** icon allows you to export your project. There are plenty of available formats, but an interesting option is **"templating"**
 
 #### as Template
@@ -432,6 +439,9 @@ This creates a **template in JSON format** which can be used for exporting to fo
 OpenRefine offers an example to export to YAML:
 [https://github.com/OpenRefine/OpenRefine/wiki/Export-As-YAML](https://github.com/OpenRefine/OpenRefine/wiki/Export-As-YAML)
 
+### Save project
+
+You can save the entire project as a file, which you'll be able to share with collaborators. You'll see a .tar.gz file but don't worry, OpenRefine can read it just fine. All you have to do is send the entire thing so your collaborator can see the file and all the modification history. Note that if you have facets in your project, those facets won't be exported. 
 
 ### Reuse routines in the future
 
