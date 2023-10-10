@@ -418,13 +418,14 @@ We then let the magic happen and a few seconds / minutes / hours later we should
     "altitude": 23.0,
     "vertex": true,
     "geometry": {"type":"Point","coordinates":[-73.74,45.4406]}
-}```
+}
+```
 
 Since we only want to keep the value for "altitude", in this case 23.0, we need to tell OpenRefine what to do with the _query_result_ column.
 
 ```On column" query_result ": edit column / add column based on this column```
 
-```value.parseJson().altitude ```
+```value.parseJson().altitude```
 which should return 23.
 
 
