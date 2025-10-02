@@ -850,6 +850,7 @@ par exemple, pour les modification du fichier où nous avons bonifié les donné
 ```
 
 et pour la bonification à l'aide de la réconciliation
+```json
 [
   {
     "op": "core/text-transform",
@@ -997,7 +998,15 @@ et pour la bonification à l'aide de la réconciliation
     "description": "Extend data at index 9 based on column NOM_ARROND"
   }
 ]
+```
+**copier coller dans un fichier texte** (pas de fichier Word!)
 
-**copier coller dans un fichier texte** (pas de Word!)
+La procédure pour répéter les opérationes est
+- ouvrir un nouveau projet
+- importer un nouveau fichier
+- retourner à undo/redo
+- cliquer apply
+- copier-coller le code
+- cliquer perform operations 
 
-et on peut ouvrir un nouveau projet, un nouveau fichier, retourner à undo/redo, cliquer apply, copier-coller le code, cliquer perform operations et zip zap zoup!
+et patienter jusqu'à ce que les opérations soient complétées. Il est important de toujours valider la qualité du travail, puisque des fichiers différents peuvent produire des résultats différents.
