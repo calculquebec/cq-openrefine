@@ -21,7 +21,7 @@ Vous pouvez télécharger OpenRefine à cette addresse
 
 [https://forum.openrefine.org/](https://forum.openrefine.org/)
 
->**La doc s'est beaucoup améliorée depuis les débuts, mais elle n'est pas parfaite et ça vaut la peine de regarder les groupes de discussion. La doc est sous forme de Wiki et vous pouvez y contribuer (on a besoin de traducteurs)!**
+>**La doc s'est beaucoup améliorée depuis les débuts, mais elle n'est pas parfaite et ça vaut la peine de regarder les groupes de discussion. La documentation est hébergée dans une dépôt Github et vous pouvez y contribuer (on a besoin de traducteurs)!**
 [https://openrefine.org/docs](https://openrefine.org/docs)
 
 4. OpenRefine est relativement performant jusqu'à une concurrence de **100 000 lignes**. Il est peu recommandé d'utiliser OpenRefine sur des fichiers de millions de lignes pour des questions de performance. Cependant, il est possible de modifier la mémoire vive utilisée pour accomoder des traitements de données plus massifs.
