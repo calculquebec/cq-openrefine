@@ -66,7 +66,7 @@ OpenRefine peut importer plusieurs types de fichiers: **tsv (tab separated), csv
 
 1. Dans l'onglet **"Create Project"** 
 2. Cliquez **"Choose Files"** pour chercher le fichier csv sur votre ordinateur
- - Pour les données d'extermination de punaises de lits, vous pouvez sélectionner l'onglet _Web Addresses (URLs)_ et coller [https://data.montreal.ca/dataset/49ff9fe4-eb30-4c1a-a30a-fca82d4f5c2f/resource/6173de60-c2da-4d63-bc75-0607cb8dcb74/download/declarations-exterminations-punaises-de-lit.csv]
+ - Pour les données d'extermination de punaises de lits, vous pouvez sélectionner l'onglet _Web Addresses (URLs)_ et coller [https://donnees.montreal.ca/dataset/49ff9fe4-eb30-4c1a-a30a-fca82d4f5c2f/resource/ba28703e-ce85-4293-8a37-88932bf4ae93/download/declarations-exterminations-punaises-de-lit.csv](https://donnees.montreal.ca/dataset/49ff9fe4-eb30-4c1a-a30a-fca82d4f5c2f/resource/ba28703e-ce85-4293-8a37-88932bf4ae93/download/declarations-exterminations-punaises-de-lit.csv)
 3. Cliquez **"Next"**.
 4. Vous devriez voir un **aperçu du fichier**.
 5. OpenRefine est maintenant assez apte à auto-détecter l'encodage (UTF-8), mais il se pourrait que vous deviez **changer l'encodage (change encoding)**
