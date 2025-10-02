@@ -441,6 +441,7 @@ OpenRefine offre un exemple pour exmporter en YAML:
 Dans l'onglet **undo/redo**, on peut cliquer extract et ça va nous donner un fichier JSON qui pourra servir à la documentation ou à la réutilisation. On peut sélectionner les parties qu'on veut garder de notre routine.
 
 par exemple, pour les modification du fichier où nous avons bonifié les données à l'aide de l'API:
+```json
 [
   {
     "op": "core/row-removal",
@@ -846,6 +847,7 @@ par exemple, pour les modification du fichier où nous avons bonifié les donné
     "description": "Create column ELEVATION at index 22 based on column JSON using expression grel:value.parseJson().altitude"
   }
 ]
+```
 
 et pour la bonification à l'aide de la réconciliation
 [
