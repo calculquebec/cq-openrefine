@@ -259,9 +259,8 @@ Que feriez-vous?
 #### Réponse 
 Nous pouvons éditer les entrées pour chaque ligne où nous avons confiance qu'il s'agit d'une erreur de frappe et éliminer celles qui sont douteuses en les marquant d'un drapeau, puis un facet sur All - by flag.
 Note: Personnellement, je préfère marquer les éditions manuelles à effectuer et le faire à la toute fin. De cette façon, les manipulations de masse sont conservées dans un seul bloc pour réutilisation future et les manipulations à la pièce peuvent être rapidement éliminées si elles ne sont pas réutilisables dans d'autres fichiers.
+
 ---
-
-
 ### Changer l'ordre des colonnes, enlever les colonnes
 
 ```Flèche à côté de ALL, edit columns/re-order remove columns```
