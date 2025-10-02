@@ -333,7 +333,6 @@ Il est possible d'organiser les données selon la date plutôt que numériquemen
 Attention: Il est possible que la conversion au format date fonctionne de façon aléatoire pour vous. Il semblerait qu'il s'agisse d'un problème avec Java et le fuseau horaire de votre ordinateur. Toujours vérifier que la conversion a produit le résultat escompté!
 ***
 
----
 ##### Exercice
 Nous allons créer une colonne Année, Mois et Jour à partir de la colonne _DATE_FINTRAIT_.
 Vous pouvez constater le résultat d'une transformation de la colonne en date. En sélectionnant la flèche, puis Transform, puis Common Transforms, puis To Date. Le contenu des cellules devient vert. Que remarquez-vous de plus?
