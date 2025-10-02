@@ -252,7 +252,6 @@ Ou bien le faire à la main **facet by blank sur la colonne DATE_DEBUTTRAIT 1** 
 
 ---
 
----
 ##### Question
 En utilisant un facet sur la colonne année et l'information contenue dans la description du jeu de données, que pouvez-vous déterminer?
 Que feriez-vous?
